@@ -3,7 +3,7 @@ package render
 import (
 	"testing"
 
-	j "github.com/thisisibrahimd/k8s/pkg/builder"
+	j "github.com/thisisibrahimd/libsonnet-gen/pkg/builder"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/sebdah/goldie/v2"
-	"github.com/thisisibrahimd/k8s/pkg/format"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/format"
 )
 
 // assertRender verifies that the rendered Type matches the golden file.

@@ -4,7 +4,7 @@ import (
 	"sort"
 	"strings"
 
-	j "github.com/thisisibrahimd/k8s/pkg/builder"
+	j "github.com/thisisibrahimd/libsonnet-gen/pkg/builder"
 )
 
 // SortFields sorts Jsonnet fields

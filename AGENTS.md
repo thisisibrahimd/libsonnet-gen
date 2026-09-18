@@ -1,4 +1,4 @@
-# k8s-gen — Agent Notes
+# libsonnet-gen — Agent Notes
 
 ## What this repo does
 Code generator for Jsonnet Kubernetes libraries. Consumes OpenAPI v2 (Swagger), CRDs, or JSON Schema → produces `.libsonnet` files.
@@ -9,14 +9,14 @@ go test ./...                          # run all tests
 make test                              # same
 make libs/<name>                       # generate a library from libs/<name>/config.json
 make libs/<name> VERSIONS="1.27.0"     # regenerate specific versions only
-go build -o k8s-gen .                  # build binary (Makefile expects ./k8s-gen in repo root)
-go install .                           # installs as "k8s" (module name), NOT "k8s-gen" — rename or use "k8s" in commands
+go build -o libsonnet-gen .            # build binary (Makefile expects ./libsonnet-gen in repo root)
+go install .                           # installs as "libsonnet-gen" (module name)
 ```
 
 ## Library generation
 - `libs/` contains 100+ pre-configured CRD-based libraries, each with its own `config.json`
-- `k8s-gen generate k8s --config libs/<name>/config.json` — run directly (add `--debug` for verbose logging)
-- `k8s-gen generate jsonschema --schema <path> --output <path>` — generate from JSON Schema instead
+- `libsonnet-gen --target kubernetes --config libs/<name>/config.json` — run directly (add `--debug` for verbose logging)
+- `libsonnet-gen --target jsonschema --schema <path> --output <path>` — generate from JSON Schema instead
 - `outputDir` in config.json is relative to the config file's directory, not cwd
 
 ## Golden tests
@@ -33,7 +33,7 @@ config.json → specGenerator (optional) → specs[] → model.Load() → render
 - **OpenAPI/CRD path**: `pkg/model/modifiers.go` (model) → `pkg/render/modifiers.go` (render)
 - **JSON Schema path**: `pkg/compiler/jsonschemacompiler/jsonschemacompiler.go` (standalone compiler)
 - **Builder**: `pkg/builder/` — generates Jsonnet AST from Go (Func, Object, Call, List, etc.)
-- **CLI entry**: `main.go` → `cmd/k8s-gen/root.go` + `generate.go` (urfave/cli/v3)
+- **CLI entry**: `main.go` → `cmd/libsonnet-gen/root.go` (urfave/cli/v3)
 
 ## Modifiers model
 For each field, the generator creates:
@@ -55,8 +55,7 @@ For each field, the generator creates:
 - Release: push `v*` tag → GoReleaser → GitHub releases + GHCR Docker images (`.github/workflows/release.yml`)
 
 ## Gotchas
-- Binary installs as `k8s` (module path), not `k8s-gen`. Use `go build -o k8s-gen .` or rename.
-- The Makefile expects `./k8s-gen` in the repo root — build before running `make libs/*`.
+- The Makefile expects `./libsonnet-gen` in the repo root — build before running `make libs/*`.
 - `specGenerator` and manual `specs` are mutually exclusive modes in `config.json`.
 - GitHub auto-discovery needs `GITHUB_TOKEN` for rate limits (60/hr unauth, 5000/hr with token).
 - When adding new builder types, update both `String()` output and `Name()` — the Object builder uses child `Name()` as the object key.

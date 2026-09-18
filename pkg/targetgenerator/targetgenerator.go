@@ -1,7 +1,7 @@
 package targetgenerator
 
 import (
-	"github.com/thisisibrahimd/k8s/pkg/config"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/config"
 	"github.com/mdobak/go-xerrors"
 )
 

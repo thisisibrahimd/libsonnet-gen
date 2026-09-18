@@ -5,10 +5,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/thisisibrahimd/k8s/pkg/config"
-	"github.com/thisisibrahimd/k8s/pkg/format"
-	"github.com/thisisibrahimd/k8s/pkg/model"
-	"github.com/thisisibrahimd/k8s/pkg/render"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/config"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/format"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/model"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/render"
 	"github.com/mdobak/go-xerrors"
 )
 

@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"os"
 
-	j "github.com/thisisibrahimd/k8s/pkg/builder"
-	"github.com/thisisibrahimd/k8s/pkg/model"
-	"github.com/thisisibrahimd/k8s/pkg/render"
-	"github.com/thisisibrahimd/k8s/pkg/swagger"
+	j "github.com/thisisibrahimd/libsonnet-gen/pkg/builder"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/model"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/render"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/swagger"
 )
 
 const dMock = `local d = {

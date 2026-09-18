@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	j "github.com/thisisibrahimd/k8s/pkg/builder"
+	j "github.com/thisisibrahimd/libsonnet-gen/pkg/builder"
 )
 
 const dPkg = "doc-util/main.libsonnet"
