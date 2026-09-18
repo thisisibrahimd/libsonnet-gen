@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/thisisibrahimd/k8s/pkg/swagger"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/swagger"
 )
 
 // Groups represents a list of group

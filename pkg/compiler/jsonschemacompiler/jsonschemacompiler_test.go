@@ -8,8 +8,8 @@ import (
 
 	"github.com/santhosh-tekuri/jsonschema/v6"
 	"github.com/sebdah/goldie/v2"
-	"github.com/thisisibrahimd/k8s/pkg/compiler/jsonschemacompiler"
-	"github.com/thisisibrahimd/k8s/pkg/format"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/compiler/jsonschemacompiler"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/format"
 )
 
 func TestCompileLibsonnet(t *testing.T) {

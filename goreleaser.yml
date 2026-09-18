@@ -6,7 +6,7 @@
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
 
-project_name: k8s-gen
+project_name: libsonnet-gen
 
 version: 2
 
@@ -24,7 +24,7 @@ builds:
       - linux
       - darwin
     main: main.go
-    binary: k8s-gen
+    binary: libsonnet-gen
 
 release:
   prerelease: auto
@@ -44,14 +44,14 @@ snapshot:
   version_template: "{{ incpatch .Version }}-alpha"
 
 dockers_v2:
-  - id: k8s-gen
+  - id: libsonnet-gen
     dockerfile: "Containerfile"
     images:
-      - "ghcr.io/thisisibrahimd/k8s-gen"
+      - "ghcr.io/thisisibrahimd/libsonnet-gen"
     extra_files:
       - LICENSE
     labels:
-      "org.opencontainers.image.description": "k8s-gen"
+      "org.opencontainers.image.description": "libsonnet-gen"
       "org.opencontainers.image.created": "{{.Date}}"
       "org.opencontainers.image.name": "{{.ProjectName}}"
       "org.opencontainers.image.revision": "{{.FullCommit}}"

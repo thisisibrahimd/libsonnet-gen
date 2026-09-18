@@ -1,4 +1,4 @@
-# k8s-gen
+# libsonnet-gen
 
 Code generator for Jsonnet Kubernetes libraries.
 
@@ -11,25 +11,23 @@ CustomResourceDefinitions, or from JSON Schema.
 ### Docker
 
 ```bash
-docker pull ghcr.io/thisisibrahimd/k8s-gen:<version>
+docker pull ghcr.io/thisisibrahimd/libsonnet-gen:<version>
 ```
 
 ### Binary release
 
-Download pre-built binaries from [GitHub Releases](https://github.com/thisisibrahimd/k8s/releases):
+Download pre-built binaries from [GitHub Releases](https://github.com/thisisibrahimd/libsonnet-gen/releases):
 
 ```bash
-curl -sL https://github.com/thisisibrahimd/k8s/releases/latest/download/k8s-gen_linux_x86_64.tar.gz | tar xz
-sudo mv k8s-gen /usr/local/bin/
+curl -sL https://github.com/thisisibrahimd/libsonnet-gen/releases/latest/download/libsonnet-gen_linux_x86_64.tar.gz | tar xz
+sudo mv libsonnet-gen /usr/local/bin/
 ```
 
 ### From source
 
 ```bash
-go install github.com/thisisibrahimd/k8s@latest
+go install github.com/thisisibrahimd/libsonnet-gen@latest
 ```
-
-Note: this installs the binary as `k8s` (module path name). Rename or symlink it to `k8s-gen`, or substitute `k8s` in the commands below.
 
 ## Usage
 
@@ -63,7 +61,7 @@ Create a `config.json` with `specGenerator` to auto-discover CRDs from GitHub:
 Then run:
 
 ```bash
-k8s-gen generate k8s --config libs/cloudnative-pg/config.json
+libsonnet-gen --target kubernetes --config libs/cloudnative-pg/config.json
 ```
 
 Note: Output defaults to the config file's directory. Set `outputDir` in config to change this (relative to config file).
@@ -100,14 +98,14 @@ The `versionPrefix` field (default `"v"`) is prepended to each version in `versi
 If you have the [GitHub CLI](https://cli.github.com/) installed, you can use it to get a token:
 
 ```bash
-GITHUB_TOKEN=$(gh auth token) k8s-gen generate k8s --config libs/cloudnative-pg/config.json
+GITHUB_TOKEN=$(gh auth token) libsonnet-gen --target kubernetes --config libs/cloudnative-pg/config.json
 ```
 
 Or export it for the session:
 
 ```bash
 export GITHUB_TOKEN=$(gh auth token)
-k8s-gen generate k8s --config libs/cloudnative-pg/config.json
+libsonnet-gen --target kubernetes --config libs/cloudnative-pg/config.json
 ```
 
 #### Approach 2: Manual Specs
@@ -178,10 +176,10 @@ Create a `config.json` in the new folder. This example renders a lib from CRDs:
 }
 ```
 
-Build the binary first (the Makefile expects `./k8s-gen` in the repo root):
+Build the binary first (the Makefile expects `./libsonnet-gen` in the repo root):
 
 ```bash
-go build -o k8s-gen .
+go build -o libsonnet-gen .
 ```
 
 Generate the library:
@@ -199,10 +197,10 @@ $ make libs/<name> VERSIONS="1.27.0"
 Or run the binary directly:
 
 ```bash
-$ k8s-gen generate k8s --config libs/<name>/config.json
+$ libsonnet-gen --target kubernetes --config libs/<name>/config.json
 ```
 
-Append version outputs as positional arguments to regenerate only specific versions, e.g. `k8s-gen generate k8s --config libs/<name>/config.json 1.27.0`. Use the global `--debug` flag for verbose logging.
+Append version outputs as positional arguments to regenerate only specific versions, e.g. `libsonnet-gen --target kubernetes --config libs/<name>/config.json 1.27.0`. Use the global `--debug` flag for verbose logging.
 
 ### Generate Jsonnet from JSON Schema
 
@@ -229,7 +227,7 @@ Create a small JSON Schema. For example, `config.schema.json`:
 Run the generator:
 
 ```bash
-$ k8s-gen generate jsonschema \
+$ libsonnet-gen --target jsonschema \
   --schema ./config.schema.json \
   --output ./config.libsonnet
 ```
@@ -355,7 +353,7 @@ For that, there are two methods for extending:
 
 ### `custom` patches
 
-The [`custom/`](https://github.com/thisisibrahimd/k8s/tree/master/libs/k8s/custom)
+The [`custom/`](https://github.com/thisisibrahimd/libsonnet-gen/tree/master/libs/k8s/custom)
 directory contains a set of `.libsonnet` files, that are _automatically merged_
 with the generated result in `main.libsonnet`, so they become part of the
 exported API.

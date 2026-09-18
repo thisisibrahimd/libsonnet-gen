@@ -6,6 +6,6 @@ WORKDIR /app
 
 RUN apk add --no-cache ca-certificates git
 
-COPY $TARGETPLATFORM/k8s-gen /usr/local/bin/
+COPY $TARGETPLATFORM/libsonnet-gen /usr/local/bin/
 
-ENTRYPOINT ["k8s-gen"]
+ENTRYPOINT ["libsonnet-gen"]

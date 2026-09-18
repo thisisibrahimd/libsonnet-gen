@@ -2,7 +2,7 @@
 ## Optionally restrict to one or more versions by passing VERSIONS="<v1> <v2> ...".
 .PHONY: libs/*
 libs/*:
-	./k8s-gen generate k8s --config $(shell realpath $@)/config.json $(VERSIONS)
+	./libsonnet-gen --target kubernetes --config $(shell realpath $@)/config.json $(VERSIONS)
 
 .PHONY: update-golden-test-data
 update-golden-test-data:

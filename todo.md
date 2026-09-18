@@ -105,7 +105,7 @@ Priority order: small/stable first, then high-impact operators.
 ## Process for adding each
 
 1. Add `libs/<name>/config.json` with `specGenerator` (or manual `specs` if needed).
-2. Run `./k8s-gen generate k8s --config libs/<name>/config.json`.
+2. Run `./libsonnet-gen --target kubernetes --config libs/<name>/config.json`.
 3. Verify generated output and `git status`.
 4. Add to `Makefile` target list if a top-level shortcut is desired.
 5. Update this file to mark the item done.

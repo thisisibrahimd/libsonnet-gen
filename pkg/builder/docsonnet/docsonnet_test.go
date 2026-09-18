@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	j "github.com/thisisibrahimd/k8s/pkg/builder"
+	j "github.com/thisisibrahimd/libsonnet-gen/pkg/builder"
 	"github.com/sebdah/goldie/v2"
 )
 

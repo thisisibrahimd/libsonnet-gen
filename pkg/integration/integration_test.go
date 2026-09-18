@@ -6,10 +6,10 @@ import (
 	"testing"
 
 	"github.com/sebdah/goldie/v2"
-	"github.com/thisisibrahimd/k8s/pkg/format"
-	"github.com/thisisibrahimd/k8s/pkg/model"
-	"github.com/thisisibrahimd/k8s/pkg/render"
-	"github.com/thisisibrahimd/k8s/pkg/swagger"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/format"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/model"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/render"
+	"github.com/thisisibrahimd/libsonnet-gen/pkg/swagger"
 )
 
 type k8sTestCase struct {

@@ -1,4 +1,4 @@
-module github.com/thisisibrahimd/k8s
+module github.com/thisisibrahimd/libsonnet-gen
 
 go 1.26.6
 
